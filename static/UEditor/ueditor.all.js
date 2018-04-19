@@ -1,7 +1,7 @@
 /*!
  * UEditor
  * version: ueditor
- * build: Wed Aug 10 2016 11:06:02 GMT+0800 (CST)
+ * build: Fri Apr 20 2018 00:13:09 GMT+0800 (CST)
  */
 
 (function(){
@@ -24524,6 +24524,11 @@ UE.plugin.register('simpleupload', function (){
                         link = me.options.imageUrlPrefix + json.url;
                         if(json.state == 'SUCCESS' && json.url) {
                             loader = me.document.getElementById(loadingId);
+                            // 监听图片加载(author HaoChuan9421)
+                            loader.onload = function() {
+                                // 加载完毕后,手动触发UEditor的contentchange
+                                me.fireEvent('contentchange');
+                            }
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
                             loader.setAttribute('title', json.title || '');
