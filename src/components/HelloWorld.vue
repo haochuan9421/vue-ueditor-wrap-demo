@@ -3,7 +3,7 @@
     <button @click="showData">控制台查看绑定数据</button>
     <div class="preview" v-html="msg"></div>
     <!-- 通过巧妙的设计，你不需要担心一个页面中过多vue-ueditor-wrap组件会导致混乱，,或者重复引用JS(打开控制台瞄一眼)，每个组件都保证拥有一个独立的UEditor实例，你可以尝试把数字改成99(小伙伴们根据自己电脑自行斟酌)，但依然稳定可用 -->
-    <vue-ueditor-wrap v-model="msg" :config="config" @ready="ready" v-for="item in 2" :key="item"></vue-ueditor-wrap>
+    <vue-ueditor-wrap v-model="msg" :config="config" @ready="ready" v-for="item in 10" :key="item"></vue-ueditor-wrap>
   </div>
 </template>
 
