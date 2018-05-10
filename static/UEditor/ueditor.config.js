@@ -409,7 +409,7 @@
 			p:      ['class', 'style'],
 			pre:    ['class', 'style'],
 			s:      [],
-			section:['class', 'style'],
+			section:[],
 			small:  [],
 			span:   ['class', 'style'],
 			sub:    ['class', 'style'],
