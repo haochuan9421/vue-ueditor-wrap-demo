@@ -1,7 +1,7 @@
 /*!
  * UEditor
  * version: ueditor
- * build: Fri Apr 20 2018 00:13:09 GMT+0800 (CST)
+ * build: Wed Jul 11 2018 23:48:47 GMT+0800 (中国标准时间)
  */
 
 (function(){
@@ -23954,7 +23954,8 @@ UE.plugin.register('autosave', function (){
     return {
         defaultOptions: {
             //默认间隔时间
-            saveInterval: 500
+            saveInterval: 500,
+            enableAutoSave: true // HaoChuan9421
         },
         bindEvents:{
             'ready':function(){
@@ -23974,6 +23975,10 @@ UE.plugin.register('autosave', function (){
             },
 
             'contentchange': function () {
+                // HaoChuan9421
+                if (!me.getOpt('enableAutoSave')) {
+                    return;
+                }
 
                 if ( !saveKey ) {
                     return;
@@ -24524,17 +24529,13 @@ UE.plugin.register('simpleupload', function (){
                         link = me.options.imageUrlPrefix + json.url;
                         if(json.state == 'SUCCESS' && json.url) {
                             loader = me.document.getElementById(loadingId);
-                            // 监听图片加载(author HaoChuan9421)
-                            loader.onload = function() {
-                                // 加载完毕后,手动触发UEditor的contentchange
-                                me.fireEvent('contentchange');
-                            }
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
                             loader.setAttribute('title', json.title || '');
                             loader.setAttribute('alt', json.original || '');
                             loader.removeAttribute('id');
                             domUtils.removeClasses(loader, 'loadingclass');
+                            me.fireEvent("contentchange"); // HaoChuan9421
                         } else {
                             showErrorLoader && showErrorLoader(json.state);
                         }
