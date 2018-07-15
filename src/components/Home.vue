@@ -51,7 +51,7 @@ export default {
       this.$refs.ueditor.forEach((vm) => {
         vm.registerButton({
           name: 'test',
-          icon: '/static/test-button.png',
+          icon: './static/test-button.png',
           tip: 'this is a test tip',
           handler: (editor, name) => {
             editor.execCommand('inserthtml', `<span>text inserted by test button</span>`)
