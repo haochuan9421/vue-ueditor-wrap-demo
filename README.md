@@ -2,6 +2,9 @@
 
 > demo based on vue-cli for [vue-ueditor-wrap](https://github.com/HaoChuan9421/vue-ueditor-wrap)
 
+
+[点击预览](https://haochuan9421.github.io/vue-ueditor-wrap-demo/)
+
 ![image](https://github.com/HaoChuan9421/vue-ueditor-wrap/raw/master/assets/images/demo.gif)
 
 ## Build Setup
