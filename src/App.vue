@@ -15,10 +15,11 @@ export default {
 </script>
 
 <style scoped>
-.nav{
+.nav {
   list-style: none;
   text-align: center;
 }
+
 .nav li {
   display: inline-block;
   height: 35px;
@@ -32,7 +33,8 @@ export default {
   border-radius: 10px;
   background-color: #ffffff;
 }
-.nav li:hover{
+
+.nav li:hover,li.router-link-active {
   background-color: #3eaf7c;
   border: 1px solid #3eaf7c;
   color: #ffffff;
