@@ -12,7 +12,7 @@
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vue-ueditor-wrap": "^1.3.4"
+    "vue-ueditor-wrap": "^1.3.6"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

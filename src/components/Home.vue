@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       // 3、v-model绑定数据
-      msg: '<h2><img src="http://img.baidu.com/hi/jx2/j_0003.gif"/>Vue2.x + UEditor + v-model双向绑定</h2>',
+      msg: '<h2><img src="http://img.baidu.com/hi/jx2/j_0003.gif"/>Vue + UEditor + v-model双向绑定</h2>',
       // 4、根据项目需求自行配置,具体配置参见ueditor.config.js源码或 http://fex.baidu.com/ueditor/#start-start
       config: {
         // 如果需要上传功能,找后端小伙伴要服务器接口地址
