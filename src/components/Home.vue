@@ -57,6 +57,24 @@ export default {
             editor.execCommand('inserthtml', `<span>text inserted by test button</span>`)
           }
         })
+        vm.registerButton({
+          name: 'center',
+          icon: './static/center.png',
+          tip: '表格居中',
+          handler: (editor, name) => {
+            var tables = editor.document.querySelectorAll('table')
+            if (tables.length) {
+              tables.forEach((table) => {
+                table.style.margin = '0 auto'
+              })
+            } else {
+              editor.trigger('showmessage', {
+                content: '没有表格',
+                timeout: 2000
+              })
+            }
+          }
+        })
       })
     }
   }
