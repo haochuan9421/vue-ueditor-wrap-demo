@@ -23,6 +23,10 @@ export default {
       config: {
         // 如果需要上传功能,找后端小伙伴要服务器接口地址
         // serverUrl: 'http://api.demo.com/ueditor/upload',
+        // 配合最新编译的资源文件，你可以实现添加自定义Request Headers,详情https://github.com/HaoChuan9421/ueditor/commits/dev-1.4.3.3
+        // headers: {
+        //   access_token: '37e7c9e3fda54cca94b8c88a4b5ddbf3'
+        // },
         // 你的UEditor资源存放的路径,相对于打包后的index.html
         UEDITOR_HOME_URL: './static/UEditor/',
         // 编辑器不自动被内容撑高
