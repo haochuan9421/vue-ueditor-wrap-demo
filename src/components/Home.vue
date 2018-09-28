@@ -1,8 +1,18 @@
 <template>
   <div class="hello">
     <div @click="showData" class="preview" v-html="msg"></div>
-    <!-- 通过巧妙的设计,你不需要担心一个页面中过多vue-ueditor-wrap组件会导致混乱,或者重复引用JS(打开控制台瞄一眼),每个组件都保证拥有一个独立的UEditor实例,你可以尝试把数字改成99(小伙伴们根据自己电脑自行斟酌),但依然稳定可用 -->
-    <vue-ueditor-wrap ref="ueditor" v-model="msg" :destroy="false" :config="config" @ready="ready" v-for="item in 2" :key="item" :init="myInit"></vue-ueditor-wrap>
+    <form ref="form" action="http://localhost:3000/ueditor" method="post">
+      <vue-ueditor-wrap
+        ref="ueditor"
+        v-model="msg"
+        :destroy="false"
+        :config="config"
+        @ready="ready"
+        name="content"
+      ></vue-ueditor-wrap>
+      <input type="submit" value="通过input的submit提交" />
+    </form>
+    <button @click="submitHandler">通过js调用submit提交</button>
   </div>
 </template>
 
@@ -32,49 +42,36 @@ export default {
         // 初始容器宽度
         initialFrameWidth: '100%',
         // 关闭自动保存
-        enableAutoSave: false
-      }
+        enableAutoSave: false,
+        // 自定义工具栏，需要额外选项可以参考ueditor.config.js
+        toolbars: [[
+          'fullscreen', 'source', '|',
+          'bold', 'italic', 'underline', '|', 'fontsize', '|', 'kityformula', 'preview'
+        ]]
+      },
+      editorInstance: null
+    }
+  },
+  mounted () {
+    this.$refs.form.onsubmit = function () {
+      this.submitHandler()
+      return false
     }
   },
   methods: {
     // 5、 你可以在ready方法中拿到editorInstance实例,之后的所有API就和官方的实例一样了,Just Do What You Want! http://fex.baidu.com/ueditor/#api-common
     ready (editorInstance) {
       console.log(`你要的实例${editorInstance.key}在此:`, editorInstance)
+      this.editorInstance = editorInstance
     },
     // 6. 查看绑定的数据
     showData () {
       alert(this.msg)
       console.log(this.msg)
     },
-    // 7. 结合init方法,自定义按钮
-    myInit () {
-      this.$refs.ueditor.forEach((vm) => {
-        vm.registerButton({
-          name: 'test',
-          icon: './static/test-button.png',
-          tip: 'this is a test tip',
-          handler: (editor, name) => {
-            editor.execCommand('inserthtml', `<span>text inserted by test button</span>`)
-          }
-        })
-        vm.registerButton({
-          name: 'center',
-          icon: './static/center.png',
-          tip: '表格居中',
-          handler: (editor, name) => {
-            var tables = editor.document.querySelectorAll('table')
-            if (tables.length) {
-              tables.forEach((table) => {
-                table.style.margin = '0 auto'
-              })
-            } else {
-              editor.trigger('showmessage', {
-                content: '没有表格',
-                timeout: 2000
-              })
-            }
-          }
-        })
+    submitHandler () {
+      this.editorInstance.getKfContent((content) => {
+        this.$refs.form.submit()
       })
     }
   }
