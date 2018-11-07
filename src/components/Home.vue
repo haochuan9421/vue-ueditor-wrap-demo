@@ -22,7 +22,8 @@ export default {
       // 4、根据项目需求自行配置,具体配置参见ueditor.config.js源码或 http://fex.baidu.com/ueditor/#start-start
       config: {
         // 如果需要上传功能,找后端小伙伴要服务器接口地址
-        // serverUrl: 'http://api.demo.com/ueditor/upload',
+        // 这个地址是我为方便小伙伴们体验文件上传功能搭建的临时接口，请勿在生产环境使用！！！
+        serverUrl: 'http://35.201.165.105:8000/controller.php',
         // 配合最新编译的资源文件，你可以实现添加自定义Request Headers,详情https://github.com/HaoChuan9421/ueditor/commits/dev-1.4.3.3
         // headers: {
         //   access_token: '37e7c9e3fda54cca94b8c88a4b5ddbf3'
