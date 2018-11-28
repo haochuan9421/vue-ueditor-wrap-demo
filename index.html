@@ -7,6 +7,10 @@
   </head>
   <body>
     <div id="app"></div>
+    <!-- 开发环境使用 npm 引入，生产环境使用CDN链接 -->
+    <% if (htmlWebpackPlugin.options.isProd) { %>
+    <script src="https://cdn.jsdelivr.net/npm/vue-ueditor-wrap/lib/vue-ueditor-wrap.min.js"></script>
+    <% } %>
     <!-- built files will be auto injected -->
   </body>
 </html>

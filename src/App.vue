@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ul class="nav">
-      <router-link :to="{path: '/Home'}" tag="li">主页</router-link>
+      <router-link :to="{path: '/'}" tag="li">主页</router-link>
       <router-link :to="{path: '/Empty'}" tag="li">空白页</router-link>
     </ul>
     <router-view/>
