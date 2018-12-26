@@ -9,7 +9,7 @@
 <script>
 // 1、引入VueUeditorWrap组件
 import VueUeditorWrap from 'vue-ueditor-wrap' // ES6 Module
-// const VueUeditorWrap = require('../lib/vue-ueditor-wrap.min.js') // CommonJS
+// const VueUeditorWrap = require('vue-ueditor-wrap') // CommonJS
 export default {
   name: 'HelloWorld',
   // 2、注册组件
