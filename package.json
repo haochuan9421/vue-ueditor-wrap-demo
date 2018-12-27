@@ -7,12 +7,13 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vue-ueditor-wrap": "^2.3.0"
+    "vue-ueditor-wrap": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -48,6 +49,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "push-dir": "^0.4.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",

@@ -2,7 +2,7 @@
   <div id="app">
     <ul class="nav">
       <router-link :to="{path: '/'}" tag="li">主页</router-link>
-      <router-link :to="{path: '/Empty'}" tag="li">空白页</router-link>
+      <router-link :to="{path: '/About'}" tag="li">空白页</router-link>
     </ul>
     <router-view/>
   </div>
@@ -18,6 +18,8 @@ export default {
 .nav {
   list-style: none;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav li {
@@ -34,7 +36,7 @@ export default {
   background-color: #ffffff;
 }
 
-.nav li:hover,li.router-link-active {
+.nav li:hover,li.router-link-exact-active {
   background-color: #3eaf7c;
   border: 1px solid #3eaf7c;
   color: #ffffff;
