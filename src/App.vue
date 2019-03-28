@@ -4,7 +4,9 @@
       <router-link :to="{path: '/'}" tag="li">主页</router-link>
       <router-link :to="{path: '/About'}" tag="li">空白页</router-link>
     </ul>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
